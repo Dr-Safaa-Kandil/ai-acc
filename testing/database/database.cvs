@@ -1,0 +1,124 @@
+accounts	id	bigint	NO	null
+accounts	account_code	character varying	NO	null
+accounts	account_name_ar	character varying	NO	null
+accounts	account_type	character varying	NO	null
+accounts	is_active	boolean	YES	TRUE
+accounts	created_at	timestamp with time zone	YES	now()
+chart_of_accounts	account_code	character varying	NO	null
+chart_of_accounts	account_name_en	character varying	NO	null
+chart_of_accounts	account_name_ar	character varying	NO	null
+chart_of_accounts	account_type	character varying	YES	null
+chart_of_accounts	financial_statement	character varying	YES	null
+chart_of_accounts	parent_code	character varying	YES	null
+chart_of_accounts	is_active	boolean	YES	TRUE
+chart_of_accounts_coa	account_code	text	NO	null
+chart_of_accounts_coa	account_name_en	text	NO	null
+chart_of_accounts_coa	account_type	text	NO	null
+chart_of_accounts_coa	parent_account_code	text	YES	null
+chart_of_accounts_coa	is_active	boolean	NO	TRUE
+chart_of_accounts_coa	note_translate	text	YES	null
+chart_of_accounts_coa	created_at	timestamp with time zone	NO	now()
+italian_journal	id	integer	NO	nextval('italian_journal_id_seq'::regclass)
+italian_journal	order_code	character varying	NO	null
+italian_journal	customer_details	text	YES	null
+italian_journal	total_amount	numeric	YES	0
+italian_journal	paid_amount	numeric	YES	0
+italian_journal	remaining_cod	numeric	YES	0
+italian_journal	transaction_date	character varying	YES	null
+italian_journal	entry_number	integer	YES	null
+italian_journal	account_code	character varying	NO	null
+italian_journal	account_name	character varying	YES	null
+italian_journal	debit	numeric	YES	0
+italian_journal	credit	numeric	YES	0
+italian_journal	ifrs_notes	text	YES	null
+italian_journal	created_at	timestamp with time zone	YES	CURRENT_TIMESTAMP
+italian_journal_table	id	bigint	NO	null
+italian_journal_table	order_code	text	NO	null
+italian_journal_table	customer_details	text	YES	null
+italian_journal_table	country_code	character varying	YES	'EG'::character varying
+italian_journal_table	currency_code	character varying	YES	'EGP'::character varying
+italian_journal_table	foreign_amount	numeric	YES	0
+italian_journal_table	exchange_rate	numeric	YES	1
+italian_journal_table	base_currency_amount	numeric	YES	0
+italian_journal_table	total_amount	numeric	NO	0
+italian_journal_table	paid_amount	numeric	NO	0
+italian_journal_table	remaining_cod	numeric	NO	0
+italian_journal_table	transaction_date	date	YES	null
+italian_journal_table	entry_number	integer	YES	null
+italian_journal_table	account_code	text	NO	null
+italian_journal_table	debit	numeric	NO	0
+italian_journal_table	credit	numeric	NO	0
+italian_journal_table	ifrs_notes	text	YES	null
+italian_journal_table	created_at	timestamp with time zone	NO	now()
+journal_entries	id	bigint	NO	null
+journal_entries	reference_number	character varying	NO	null
+journal_entries	description	text	YES	null
+journal_entries	entry_date	date	NO	null
+journal_entries	total_debit	numeric	NO	0
+journal_entries	total_credit	numeric	NO	0
+journal_entries	status	character varying	YES	'POSTED'::character varying
+journal_entries	created_at	timestamp with time zone	YES	now()
+journal_entry_lines	id	bigint	NO	null
+journal_entry_lines	journal_entry_id	bigint	YES	null
+journal_entry_lines	account_code	character varying	NO	null
+journal_entry_lines	account_name	character varying	NO	null
+journal_entry_lines	debit	numeric	YES	0
+journal_entry_lines	credit	numeric	YES	0
+journal_entry_lines	created_at	timestamp with time zone	YES	now()
+journal_entry_lines	notes	text	YES	null
+journal_lines	line_id	bigint	NO	null
+journal_lines	entry_id	bigint	NO	null
+journal_lines	account_code	character varying	NO	null
+journal_lines	debit	numeric	YES	0
+journal_lines	credit	numeric	YES	0
+journal_lines	cost_center	character varying	YES	null
+journal_lines	channel	character varying	YES	null
+journal_lines	governorate	character varying	YES	null
+journal_lines	zone	character varying	YES	null
+journal_lines	order_code	character varying	YES	null
+journal_lines	print_code	character varying	YES	null
+journal_lines	line_description	text	YES	null
+journal_lines	vat_rate	numeric	YES	0
+staging_expense_journal	id	bigint	NO	null
+staging_expense_journal	expense_code	text	YES	null
+staging_expense_journal	expense_category	text	YES	null
+staging_expense_journal	amount	numeric	YES	0
+staging_expense_journal	supplier_details	text	YES	null
+staging_expense_journal	transaction_date	date	YES	null
+staging_expense_journal	invoice_scan_url	text	YES	null
+staging_expense_journal	raw_payload	jsonb	YES	null
+staging_expense_journal	status	text	YES	'PENDING'::text
+staging_expense_journal	created_at	timestamp with time zone	YES	now()
+staging_sales_journal	id	bigint	NO	null
+staging_sales_journal	order_code	text	NO	null
+staging_sales_journal	customer_details	text	YES	null
+staging_sales_journal	foreign_amount	numeric	YES	0
+staging_sales_journal	exchange_rate	numeric	YES	1
+staging_sales_journal	base_currency_amount	numeric	YES	0
+staging_sales_journal	total_amount	numeric	YES	0
+staging_sales_journal	paid_amount	numeric	YES	0
+staging_sales_journal	remaining_cod	numeric	YES	0
+staging_sales_journal	transaction_date	date	YES	null
+staging_sales_journal	raw_payload	jsonb	YES	null
+staging_sales_journal	status	text	YES	'PENDING'::text
+staging_sales_journal	created_at	timestamp with time zone	YES	now()
+staging_stakeholder_journal	id	bigint	NO	null
+staging_stakeholder_journal	stakeholder_name	text	YES	null
+staging_stakeholder_journal	transaction_type	text	YES	null
+staging_stakeholder_journal	amount	numeric	YES	0
+staging_stakeholder_journal	notes	text	YES	null
+staging_stakeholder_journal	transaction_date	date	YES	null
+staging_stakeholder_journal	status	text	YES	'PENDING'::text
+staging_stakeholder_journal	created_at	timestamp with time zone	YES	now()
+system_innovations_documentation	id	bigint	NO	null
+system_innovations_documentation	concept_code	text	NO	null
+system_innovations_documentation	concept_title_ar	text	NO	null
+system_innovations_documentation	inventor_name	text	NO	null
+system_innovations_documentation	definition_details_ar	text	YES	null
+system_innovations_documentation	created_at	timestamp with time zone	YES	now()
+system_logs	id	uuid	NO	gen_random_uuid()
+system_logs	model_used	character varying	YES	null
+system_logs	action	character varying	YES	null
+system_logs	status	character varying	YES	null
+system_logs	payload	jsonb	YES	null
+system_logs	created_at	timestamp with time zone	YES	now()

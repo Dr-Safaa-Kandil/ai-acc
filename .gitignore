@@ -10,3 +10,7 @@ Thumbs.db
 *shipping*
 *.csv
 *.xlsx
+
+.env.local
+dist/
+build/

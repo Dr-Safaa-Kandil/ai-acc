@@ -1,0 +1,28 @@
+{
+  "name": "ai-acc",
+  "version": "2.0.0",
+  "description": "Scientific AI Accounting System & Executive Command Center - Developed by Dr. Safaa Rizk Kandil",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "author": "Dr. Safaa Rizk Kandil",
+  "license": "MIT",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.117.1",
+    "autoprefixer": "^10.6.1",
+    "axios": "^1.20.0",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.3",
+    "express": "^5.2.1",
+    "lucide-react": "^1.48.0",
+    "postcss": "^8.5.28",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "supabase": "^2.117.0"
+  }
+}
